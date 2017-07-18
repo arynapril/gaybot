@@ -6,11 +6,12 @@ exports.conf = {
     enabled: true,
     guildOnly: false,
     aliases: ['github', 'gh'],
-    permLevel: 0
+    permLevel: 1
 };
 
 exports.help = {
     name: 'git',
+    category: 'Utilities',
     description: 'Provides a link to gaybots github repository!',
     usage: 'git'
 };

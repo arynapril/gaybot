@@ -4,18 +4,30 @@ module.exports = (bot) => {
         if (message.author.id === bot.config.owner) return 10;
         if (!message.guild || !message.member) return 0;
         try {
-            let modRole = message.guild.roles.find('name', bot.config.modRoleName);
-            if (modRole && message.member.roles.has(modRole.id)) permlvl = 2;
+            let memberRole = message.guild.roles.find('name', bot.config.memberRoleName);
+            if (memberRole && message.member.roles.has(memberRole.id)) permlvl = 1;
         } catch (e) {
-            console.warn("modRoleName not found. Skipping Mod (level 2) check");
+            console.warn("memberRoleName not found. Skipping member (level 1) check");
+        }
+        try {
+            let ambassadorRole = message.guild.roles.find('name', bot.config.ambassadorRoleName);
+            if (ambassadorRole && message.member.roles.has(ambassadorRole.id)) permlvl = 2;
+        } catch (e) {
+            console.warn("ambassadorRoleName not found. Skipping Ambassador (level 2) check");
+        }
+        try {
+            let repRole = message.guild.roles.find('name', bot.config.repRoleName);
+            if (repRole && message.member.roles.has(repRole.id)) permlvl = 3;
+        } catch (e) {
+            console.warn("repRoleName not found. Skipping Representative (level 3) check");
         }
         try {
             let adminRole = message.guild.roles.find('name', bot.config.adminRoleName);
-            if (adminRole && message.member.roles.has(adminRole.id)) permlvl = 3;
+            if (adminRole && message.member.roles.has(adminRole.id)) permlvl = 4;
         } catch (e) {
-            console.warn("adminRoleName not found. Skipping Admin (level 3) check");
+            console.warn("adminRoleName not found. Skipping Admin (level 4) check");
         }
-        if (message.author.id === message.guild.owner.id) permlvl = 4;
+        if (message.author.id === message.guild.owner.id) permlvl = 5;
         return permlvl;
     };
     bot.log = (type, msg, title) => {

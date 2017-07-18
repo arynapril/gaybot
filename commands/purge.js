@@ -12,11 +12,12 @@ exports.conf = {
     enabled: true,
     guildOnly: false,
     aliases: ['clear', 'prune'],
-    permLevel: 2
+    permLevel: 4
 };
 
 exports.help = {
     name: 'purge',
+    category: 'Moderation',
     description: 'Mass clearing of messages',
     usage: 'purge <number of messages to be deleted, between 2 and 100>'
 };
