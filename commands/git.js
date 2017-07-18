@@ -1,5 +1,5 @@
 exports.run = (bot, message, args, level) => {
-    message.channel.send("Here is my github repository! https://github.com/arynapril/arynbot :heart:").catch(console.error);
+    message.channel.send("Here is my github repository! https://github.com/arynapril/gaybot :heart:").catch(console.error);
 }
 
 exports.conf = {
@@ -11,6 +11,6 @@ exports.conf = {
 
 exports.help = {
     name: 'git',
-    description: 'Provides a link to arynbots github repository!',
+    description: 'Provides a link to gaybots github repository!',
     usage: 'git'
 };
