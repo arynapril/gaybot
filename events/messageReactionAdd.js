@@ -1,7 +1,7 @@
 module.exports = (bot, messageReaction, user) => {
     const Discord = require('discord.js');
     if (messageReaction.me) return;
-    if (messageReaction.emoji.name == "gayalliance" && messageReaction.count >= 2) {
+    if (messageReaction.emoji.name == "gayalliance" && messageReaction.count >= 5) {
         let msg = messageReaction.message;
         msg.react("336879585193099284");
         const embed = new Discord.RichEmbed()
