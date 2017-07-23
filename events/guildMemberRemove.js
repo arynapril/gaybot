@@ -1,4 +1,5 @@
 module.exports = (bot, member) => {
-    member.guild.defaultChannel.send(`${member.user.username} has left the server! :cry:`);
-    bot.log("log", `${member.guild.name} lost a member - ${member.user.username} (${member.id})`);
+    bot.channels.get('336865919135514626').send(`${member.user.username} has left the server!`)
+    .then(msg => setTimeout(function() {msg.delete()}, 60000));
+    bot.log("log", `Member left - ${member.user.username} (${member.id})`);
 };

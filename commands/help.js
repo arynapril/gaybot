@@ -19,7 +19,7 @@ exports.run = (bot, message, args, level) => {
             command = bot.commands.get(args[0]);
         } else if (bot.aliases.has(args[0])) {
             command = bot.commands.get(bot.aliases.get(args[0]));
-        }
+        };
         if (!command) return message.reply(`That command \`${args[0]}\` doesn't seem to exist, nor is it an alias. Try again!`);
         var helpCommand = new Discord.RichEmbed();
         helpCommand.setTitle(command.help.name)
