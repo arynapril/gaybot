@@ -9,9 +9,16 @@ exports.run = (bot, message, args, level) => {
         for(var i=0; i < channels.length; i++) {
             if(channels[i].type == 'text')
                 channels[i].overwritePermissions(member, {SEND_MESSAGES: null})
-        }
-        message.reply(member + 'has been unmuted')
-    }
+        };
+        var unmute = new Discord.RichEmbed();
+        unmute.setTitle('User was unmuted.')
+        .addField('User', user)
+        .addField('Unmuted by', message.author)
+        .setFooter("UNMUTED")
+        .setTimestamp()
+        .setColor('#4CAF50')
+        message.channel.send({embed: unmute})
+    };
 };
 
 exports.conf = {

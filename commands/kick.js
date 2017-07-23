@@ -3,7 +3,21 @@ exports.run = (bot, message, args, level) => {
     var banee = message.mentions.users.array()[0];
     var kicked = message.guild.members.get(banee.id);
     var user = bot.users.get(banee.id);
-    kicked.kick();
+    if (args.length == 1) {
+        var reason = "Not specified";
+    } else {
+        var reason = args.slice(1).join(" ");
+    }; 
+    kicked.kick(reason);
+    var kick = new Discord.RichEmbed();
+        kick.setTitle('User was kicked.')
+        .addField('User', banee, true)
+        .addField('Kicked by', message.author, true)
+        .addField('Reason', reason)
+        .setFooter("KICKED")
+        .setTimestamp()
+        .setColor('#E53935')
+    message.channel.send({embed: kick})
 };
 exports.conf = {
     enabled: true, 

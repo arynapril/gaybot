@@ -1,10 +1,11 @@
 exports.run = (bot, message, args, level) => {
-    if (args == 0 || args == 1 || args > 100) {
+    if (args <= 1 || args > 100) {
         message.channel.send("Please set a number between 2 and 100! :heart:")
     } else {
         message.delete();
         message.channel.bulkDelete(args);
-        message.channel.send(`${args} messages purged by ${message.author}! :heart:`);
+        message.channel.send(`${args} messages purged by ${message.author}! :heart:`)
+        .then(msg => setTimeout(function() {msg.delete()}, 5000));
     };
 };
 
