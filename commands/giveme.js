@@ -31,7 +31,6 @@ exports.conf = {
 
 exports.help = {
     name: 'giveme',
-    category: 'Utilities',
     description: 'Displays all the commands available for self assignment',
     usage: 'giveme <role or list (to display all roles available)>'
 };

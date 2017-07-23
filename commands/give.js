@@ -23,7 +23,6 @@ exports.conf = {
 
 exports.help = {
     name: 'give',
-    category: 'Moderation',
     description: 'Gives a member a role',
     usage: 'give @<member to be given the role> <the role to be given>'
 };
