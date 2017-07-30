@@ -1,5 +1,5 @@
 exports.run = async(bot, message, args, level) => {
-    const allowedRoles = ['social', 'alum', 'mentor', 'volunteer', 'FTC', 'VEX', 'ally', 'male', 'female', 'agender', 'genderfluid', 'demiboy', 'demigirl', 'nonbinary', 'gay', 'lesbian', 'bisexual', 'asexual', 'pansexual', 'straight', 'demisexual', 'polyamorous', 'questioning', 'queer'];
+    const allowedRoles = ['social', 'alum', 'mentor', 'volunteer', 'ftc', 'vex', 'ally', 'male', 'female', 'agender', 'genderfluid', 'demiboy', 'demigirl', 'nonbinary', 'gay', 'lesbian', 'bisexual', 'asexual', 'pansexual', 'straight', 'demisexual', 'polyamorous', 'questioning', 'queer'];
     var roleToGive = args;
     var found = false;
     var role = null;
