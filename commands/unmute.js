@@ -18,6 +18,8 @@ exports.run = (bot, message, args, level) => {
         .setTimestamp()
         .setColor('#4CAF50')
         message.channel.send({embed: unmute})
+        var logs = message.guild.channels.find('name', 'mod-logs');
+        logs.send({embed: ban});
     };
 };
 

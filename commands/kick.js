@@ -18,6 +18,8 @@ exports.run = (bot, message, args, level) => {
         .setTimestamp()
         .setColor('#E53935')
     message.channel.send({embed: kick})
+    var logs = message.guild.channels.find('name', 'mod-logs');
+    logs.send({embed: kick});
 };
 exports.conf = {
     enabled: true, 

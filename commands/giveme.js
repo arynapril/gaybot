@@ -1,5 +1,5 @@
 exports.run = async(bot, message, args, level) => {
-    const allowedRoles = ['social', 'alum', 'mentor', 'volunteer', 'FTC', 'VEX', 'ally'];
+    const allowedRoles = ['social', 'alum', 'mentor', 'volunteer', 'FTC', 'VEX', 'ally', 'male', 'female', 'agender', 'genderfluid', 'demiboy', 'demigirl', 'nonbinary', 'gay', 'lesbian', 'bisexual', 'asexual', 'pansexual', 'straight', 'demisexual', 'polyamorous', 'questioning', 'queer'];
     var roleToGive = args;
     var found = false;
     var role = null;
@@ -14,7 +14,7 @@ exports.run = async(bot, message, args, level) => {
         member.addRole(role).catch(console.error);
         message.channel.send("Successfully gave you **" + role.name + "**!");
     } else if (roleToGive == "list" || roleToGive == "-l") {
-        var list = "**List of Allowed Roles**\n";
+        var list = "**List of Allowed Roles**";
         for (var i = 0; i < allowedRoles.length; i++) list += "\n - " + allowedRoles[i];
         message.channel.send(list);
     } else {
@@ -32,5 +32,5 @@ exports.conf = {
 exports.help = {
     name: 'giveme',
     description: 'Displays all the commands available for self assignment',
-    usage: 'giveme <role or list (to display all roles available)>'
+    usage: 'giveme <role | list (to display all roles available)>'
 };

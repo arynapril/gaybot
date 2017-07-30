@@ -6,7 +6,8 @@ module.exports = (bot, message) => {
         } else {
             let role = message.guild.roles.find("name", "member");
             message.member.addRole(role);
-            bot.channels.get('336866303006736384').send(`Welcome ${message.author} to LGBTQ+ of FIRST! Feel free to contact a member of staff if you have any questions (listed in #server-rules)! Enjoy your stay!`);
+            var lobby = message.guild.channels.find('name', 'the-lobby');
+            lobby.send(`Welcome ${message.author} to LGBTQ+ of FIRST! Feel free to contact a member of staff if you have any questions (listed in #server-rules)! Enjoy your stay!`);
             message.channel.bulkDelete(50);
             message.channel.send("Welcome to LGBTQ+ of FIRST! Please read the rules for instructions on how to proceed!");
         };

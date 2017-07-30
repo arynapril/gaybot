@@ -1,4 +1,6 @@
 module.exports = (bot, member) => {
-    bot.channels.get('336865919135514626').send(`Hi ${member}! Welcome to LGBTQ+ of FIRST! Please read through the rules for instructions on how to get access to the rest of the server!`);
+    var screening = message.guild.channels.find('name', 'screening-lobby');
+    var rules = message.guild.channels.find('name', 'server-rules');
+    screening.send(`Hi ${member}! Welcome to LGBTQ+ of FIRST! Please read through the rules (found in ${rules}) for instructions on how to get access to the rest of the server!`);
     bot.log("log", `Member joined - ${member.user.username} (${member.id})`);
 };
