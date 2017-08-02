@@ -1,8 +1,9 @@
 module.exports = (bot, messageReaction, user) => {
+    let msg = messageReaction.message;
+    if (member.guild.id !== bot.config.guildID) return;
     const Discord = require('discord.js');
     if (messageReaction.me) return;
     if (messageReaction.emoji.name == "gayalliance" && messageReaction.count >= 3) {
-        let msg = messageReaction.message;
         msg.react("332135150328479744");
         const HoF = new Discord.RichEmbed();
             HoF.setColor(`${msg.member.displayHexColor}`)
@@ -23,7 +24,7 @@ module.exports = (bot, messageReaction, user) => {
             }
             HoF.setImage(pictures[0].url)
         }
-        var HallOfFame = message.guild.channels.find('name', 'hall-of-fame');
+        var HallOfFame = msg.guild.channels.find('name', 'hall-of-fame');
         HallOfFame.send({embed: HoF});
     };
 };
