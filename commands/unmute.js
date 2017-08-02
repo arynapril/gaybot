@@ -1,5 +1,6 @@
 exports.run = (bot, message, args, level) => {
     const Discord = require("discord.js");
+    if (!message.mentions.user.array()[0]) return;
     var mutee = message.mentions.users.array();
     for(var k = 0; k < mutee.length; k++) {
         var member = message.guild.members.get(mutee[k].id);

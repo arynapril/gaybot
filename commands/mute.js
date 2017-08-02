@@ -1,5 +1,6 @@
 exports.run = (bot, message, args, level) => {
     const Discord = require("discord.js");
+    if (!message.mentions.user.array()[0]) return;
     var mutee = message.mentions.users.array();
     if (args.length == 1) {
         var reason = "Not specified";

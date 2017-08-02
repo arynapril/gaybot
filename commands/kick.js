@@ -1,5 +1,6 @@
 exports.run = (bot, message, args, level) => {
     const Discord = require("discord.js");
+    if (!message.mentions.user.array()[0]) return;
     var banee = message.mentions.users.array()[0];
     var kicked = message.guild.members.get(banee.id);
     var user = bot.users.get(banee.id);
