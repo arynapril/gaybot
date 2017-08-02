@@ -1,5 +1,5 @@
 exports.run = (bot, message, args, level) => {
-    if (!message.mentions.user.array()[0]) return;
+    if (!message.mentions.users.array()[0]) return;
     var user = message.mentions.users.array()[0];
     var roleToGive = args[1];
     let role = message.guild.roles.find("name", roleToGive);

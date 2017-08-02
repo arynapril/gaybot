@@ -1,6 +1,6 @@
 exports.run = async(bot, message, args, level) => {
     const Discord = require("discord.js");
-    if (!message.mentions.user.array()[0]) return;    
+    if (!message.mentions.users.array()[0]) return;    
     var banee = message.mentions.users.array()[0];
     var banned = message.guild.members.get(banee.id);
     if (args.length == 1) {
