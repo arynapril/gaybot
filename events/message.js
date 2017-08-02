@@ -1,6 +1,6 @@
 module.exports = (bot, message) => {
     if (message.author.bot) return;
-    if (member.guild.id !== bot.config.guildID && message.author.id !== bot.config.owner) return;
+    if (message.member.guild.id !== bot.config.guildID && message.author.id !== bot.config.owner) return;
     if (message.channel.name == "screening-lobby" && message == "I have read the rules and regulations") {
         if (message.member.nickname == null) {
             message.channel.send(`Hi there ${message.author}! Please set your nickname according to the rules to gain access to the server. On desktop, type \`/nick <what you want to set your nickname to>\`. On mobile, open the left menu, tap the server title, and then the option to change nickname. Thank you!`);
