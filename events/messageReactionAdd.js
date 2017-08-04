@@ -1,6 +1,6 @@
 module.exports = (bot, messageReaction, user) => {
     let msg = messageReaction.message;
-    if (member.guild.id !== bot.config.guildID) return;
+    if (msg.guild.id !== bot.config.guildID) return;
     const Discord = require('discord.js');
     if (messageReaction.me) return;
     if (messageReaction.emoji.name == "gayalliance" && messageReaction.count >= 3) {
