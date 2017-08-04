@@ -20,7 +20,9 @@ exports.run = (bot, message, args, level) => {
         .setColor('#4CAF50')
         message.channel.send({embed: unmute})
         var logs = message.guild.channels.find('name', 'mod-logs');
-        logs.send({embed: ban});
+        if (logs) {
+            logs.send({embed: ban});
+        }
     };
 };
 
@@ -28,7 +30,7 @@ exports.conf = {
     enabled: true,
     guildOnly: false,
     aliases: ['unshush'],
-    permLevel: 10
+    permLevel: 3
 };
 
 exports.help = {

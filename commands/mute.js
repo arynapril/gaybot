@@ -32,7 +32,7 @@ exports.conf = {
     enabled: true, 
     guildOnly: false, 
     aliases: ['shush'], 
-    permLevel: 2
+    permLevel: 3
 };
 exports.help = {
     name: 'mute',  

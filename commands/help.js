@@ -38,7 +38,7 @@ exports.conf = {
     enabled: true,
     guildOnly: false,
     aliases: ['h', 'halp'],
-    permLevel: 1
+    permLevel: 0
 };
 exports.help = {
     name: 'help',
