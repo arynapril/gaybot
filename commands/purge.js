@@ -9,7 +9,7 @@ exports.run = (bot, message, args, level) => {
                 num = 100;
             }
             message.channel.bulkDelete(num);
-            message.channel.send(`${args[0]} messages purged by ${message.author}!`)
+            message.channel.send(`${num} messages purged by ${message.author}!`)
 			    .then(msg => setTimeout(function() {msg.delete()}, 5000));
         }
 	} else {
