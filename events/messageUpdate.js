@@ -1,6 +1,6 @@
 module.exports = (bot, oldMessage, newMessage) => {
     const Discord = require('discord.js');
-    if (oldMessage.member.guild.id !== bot.config.guildID) return;
+    if (oldMessage.guild.id !== bot.config.guildID) return;
     var logs = oldMessage.guild.channels.find('name', 'logs');
     if (!logs) return;
     if (!oldMessage || !newMessage) return;
