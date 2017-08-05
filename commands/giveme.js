@@ -1,10 +1,10 @@
 exports.run = async(bot, message, args, level) => {
-    const allowedRoles = ['social', 'alumni', 'mentor', 'volunteer', 'ftc', 'vex', 'ally', 'male', 'female', 'agender', 'genderfluid', 'demiboy', 'demigirl', 'nonbinary', 'gay', 'lesbian', 'bisexual', 'asexual', 'pansexual', 'straight', 'demisexual', 'polyamorous', 'questioning', 'queer'];
+    const allowedRoles = ['social', 'Alumni', 'Mentor', 'volunteer', 'FTC', 'vex', 'ally', 'male', 'female', 'agender', 'genderfluid', 'demiboy', 'demigirl', 'nonbinary', 'gay', 'lesbian', 'bisexual', 'asexual', 'pansexual', 'straight', 'demisexual', 'polyamorous', 'questioning', 'queer'];
     var roleToGive = args;
     var found = false;
     var role = null;
     for (var i = 0; i < allowedRoles.length; i++) {
-        if (allowedRoles[i].toLowerCase() == roleToGive) {
+        if (allowedRoles[i] == roleToGive) {
             found = true;
             role = message.guild.roles.find("name", allowedRoles[i]);
         };
