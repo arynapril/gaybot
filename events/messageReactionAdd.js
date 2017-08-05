@@ -3,7 +3,7 @@ module.exports = (bot, messageReaction, user) => {
     if (msg.guild.id !== bot.config.guildID) return;
     const Discord = require('discord.js');
     if (messageReaction.me) return;
-    if (messageReaction.emoji.name == "gayalliance" && messageReaction.count >= 3) {
+    if (messageReaction.emoji.name == "gayalliance" && messageReaction.count >= 5) {
         msg.react("296303996136587264");
         const HoF = new Discord.RichEmbed();
             HoF.setColor(`${msg.member.displayHexColor}`)
