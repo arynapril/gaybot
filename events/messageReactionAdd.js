@@ -4,7 +4,7 @@ module.exports = (bot, messageReaction, user) => {
     const Discord = require('discord.js');
     if (messageReaction.me) return;
     if (messageReaction.emoji.name == "gayalliance" && messageReaction.count >= 3) {
-        msg.react("332135150328479744");
+        msg.react("296303996136587264");
         const HoF = new Discord.RichEmbed();
             HoF.setColor(`${msg.member.displayHexColor}`)
             .setFooter('LGBTQ+ of FIRST 🌈')
