@@ -1,7 +1,8 @@
 module.exports = (bot, messageReaction, user) => {
+    const Discord = require('discord.js');
     let msg = messageReaction.message;
     if (msg.guild.id !== bot.config.guildID) return;
-    const Discord = require('discord.js');
+    if (!msg) return;
     if (messageReaction.me) return;
     if (messageReaction.emoji.name == "gayalliance" && messageReaction.count >= 5) {
         msg.react("296303996136587264");
