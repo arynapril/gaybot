@@ -1,5 +1,5 @@
 exports.run = async(bot, message, args, level) => {
-    const allowedRoles = ['social', 'Alumni', 'Mentor', 'Volunteer', 'FTC', 'VEX', 'ally', 'male', 'female', 'agender', 'genderfluid', 'demiboy', 'demigirl', 'nonbinary', 'gay', 'lesbian', 'bisexual', 'asexual', 'pansexual', 'straight', 'demisexual', 'polyamorous', 'questioning', 'queer'];
+    const allowedRoles = ['social', 'Alumni', 'Mentor', 'Volunteer', 'FTC', 'VEX', 'FGC', 'ally', 'male', 'female', 'agender', 'genderfluid', 'demiboy', 'demigirl', 'nonbinary', 'gay', 'lesbian', 'bisexual', 'asexual', 'pansexual', 'straight', 'demisexual', 'polyamorous', 'questioning', 'queer'];
     var roleToGive = args[0].toLowerCase();
     var found = false;
     var role = null;
@@ -11,8 +11,12 @@ exports.run = async(bot, message, args, level) => {
     };
     if (found == true) {
         var member = message.member;
-        member.addRole(role).catch(console.error);
-        message.channel.send("Successfully gave you **" + role.name + "**!");
+        if (member.roles.has(role.id)) {
+            message.channel.send("You already have that role!");
+        } else {
+            member.addRole(role).catch(console.error);
+            message.channel.send("Successfully gave you **" + role.name + "**!");
+        }
     } else if (roleToGive == "list" || roleToGive == "-l") {
         var list = "**List of Allowed Roles**";
         for (var i = 0; i < allowedRoles.length; i++) list += "\n - " + allowedRoles[i];
