@@ -21,6 +21,7 @@ exports.run = async(bot, message, args, level) => {
         } else if (roleToGive == "list" || roleToGive == "-l") {
             var list = "**List of Allowed Roles**";
             for (var i = 0; i < allowedRoles.length; i++) list += "\n - " + allowedRoles[i];
+            list += "\n For the trans role or roles according to your region, ping or DM an admin!";
             message.channel.send(list);
         } else {
             message.reply('that giveme does not exist!');
