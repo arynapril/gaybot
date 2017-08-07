@@ -24,7 +24,6 @@ exports.run = async(bot, message, args, level) => {
             list += "\n For the trans role or roles according to your region, ping or DM an admin!";
             message.channel.send(list);
         } else {
-            message.reply('that giveme does not exist!');
         };
     };
 };
