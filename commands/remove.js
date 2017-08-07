@@ -12,18 +12,18 @@ exports.run = async(bot, message, args, level) => {
         };
         if (found == true) {
             var member = message.member;
-            if (member.roles.has(role.id)) {
-                message.channel.send("You already have that role!");
+            if (!member.roles.has(role.id)) {
+                message.channel.send("You don't have that role!");
             } else {
-                member.addRole(role).catch(console.error);
-                message.channel.send("Successfully gave you **" + role.name + "**!");
+                member.removeRole(role).catch(console.error);
+                message.channel.send("Successfully took away the **" + role.name + "** role!");
             }
         } else if (roleToGive == "list" || roleToGive == "-l") {
             var list = "**List of Allowed Roles**";
             for (var i = 0; i < allowedRoles.length; i++) list += "\n - " + allowedRoles[i];
             message.channel.send(list);
         } else {
-            message.reply('that giveme does not exist!');
+            message.reply('that takefromme does not exist!');
         };
     };
 };
@@ -34,7 +34,7 @@ exports.conf = {
     permLevel: 1
 };
 exports.help = {
-    name: 'giveme',
-    description: 'The bot giveth...',
-    usage: 'giveme <role(s) | list (to display all roles available)>'
+    name: 'remove',
+    description: '...and the bot taketh away.',
+    usage: 'remove <role(s) | list (to display all roles available)>'
 };
