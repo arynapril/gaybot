@@ -28,10 +28,9 @@ exports.run = async(bot, message, args, level) => {
                 assignedCount++;
             }
         } else if (roleToGive == "list" || roleToGive == "-l") {
-            var list = "**List of Allowed Roles**";
-            for (var i = 0; i < allowedRoles.length; i++) list += "\n - " + allowedRoles[i];
+            var list = "";
+            for (var i = 0; i < allowedRoles.length; i++) list += "\n- " + allowedRoles[i];
             list += "\n For the trans role or roles according to your region, ping or DM an admin!";
-            message.channel.send(list);
         } else {
             notFoundCount++;
         };
@@ -47,6 +46,9 @@ exports.run = async(bot, message, args, level) => {
     };
     if (notFoundCount>0) {
         givemeEmbed.addField(`Couldn't find ${notFoundCount} role(s)!`, 'Use .giveme list to get a list of roles avaliable!');
+    };
+    if (roleToGive == "list" || roleToGive == "-l") {
+        givemeEmbed.addField('Roles avaliable to self assign', list)
     };
     message.channel.send({embed: givemeEmbed})
 };
