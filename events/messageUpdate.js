@@ -4,7 +4,7 @@ module.exports = (bot, oldMessage, newMessage) => {
     var logs = oldMessage.guild.channels.find('name', 'logs');
     if (!logs) return;
     if (!oldMessage || !newMessage) return;
-    if (oldMessage == newMessage) return;
+    if (oldMessage.content == newMessage.content) return;
     if (oldMessage.author.bot) return;
     var update = new Discord.RichEmbed()
         .setTitle('Message Updated')
