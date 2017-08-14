@@ -19,7 +19,7 @@ module.exports = (bot, message) => {
     const cmd = bot.commands.get(command) || bot.commands.get(bot.aliases.get(command));
     let perms = bot.permLevel(message);
     if (cmd && perms >= cmd.conf.permLevel) {
-        bot.log("log", `${message.author.username} (${message.author.id}) ran command ${cmd.help.name}`, "CMD");
+        bot.log("log", `${message.author.username} (${message.author.id}) ran command ${cmd.help.name}`, " CMD ");
         cmd.run(bot, message, args, perms);
     };
 };
