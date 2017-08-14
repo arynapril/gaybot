@@ -2,16 +2,9 @@ exports.run = (bot, message, args, level) => {
     var num = parseInt(args[0]);
     num += 1;
 	if (!isNaN(num)) {
-        if (num < 2) {
-            message.reply('Please input a number above 0! Thank you!')
-        } else {
-            if (num > 100) {
-                num = 100;
-            }
-            message.channel.bulkDelete(num);
-            message.channel.send(`${num} messages purged by ${message.author}!`)
-			    .then(msg => setTimeout(function() {msg.delete()}, 5000));
-        }
+        message.channel.bulkDelete(num);
+        message.channel.send(`${args[0]} messages purged by ${message.author}! :heart:`)
+			.then(msg => setTimeout(function() {msg.delete()}, 5000));
 	} else {
 		message.channel.sendMessage("Please specify a number!");
 	}
