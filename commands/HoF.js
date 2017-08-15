@@ -27,6 +27,7 @@ message.channel.fetchMessages({limit: 1, around: args[0]})
             HoF.setImage(pictures[0].url)
         }
         HallOfFame.send({embed: HoF});
+        message.channel.send('Message successfully added!')
     });
 };
 
