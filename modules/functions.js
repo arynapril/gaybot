@@ -1,7 +1,6 @@
 module.exports = (bot) => {
     bot.permLevel = message => {
         let permlvl = 0;
-        if (message.author.id === bot.config.owner) return 10;
         if (!message.guild || !message.member) return 0;
         try {
             let memberRole = message.guild.roles.find('name', bot.config.memberRoleName);

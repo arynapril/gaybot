@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 exports.run = async(bot, message, args, level) => {
+    if (message.author.id !== bot.config.owner) return;
     const code = args.join(" ");
     var evalEmbed = new Discord.RichEmbed()
         .setTitle('Evaluated code')
@@ -22,7 +23,7 @@ exports.conf = {
     enabled: true,
     guildOnly: false,
     aliases: [],
-    permLevel: 10
+    permLevel: 2
 };
 
 exports.help = {
