@@ -1,6 +1,7 @@
 const child_process = require('child_process');
 const Discord = require("discord.js");
 exports.run = (bot, message, args) => {
+    if (message.author.id !== bot.config.owner) return;
     var r = Math.floor(Math.random()*256);
     var g = Math.floor(Math.random()*256);
     var b = Math.floor(Math.random()*256);
@@ -35,7 +36,7 @@ exports.conf = {
     enabled: true,
     guildOnly: false,
     aliases: ['upd', 'Update', 'upd8'],
-    permLevel: 10
+    permLevel: 2
 };
 
 exports.help = {
