@@ -4,8 +4,8 @@ module.exports = (bot, messageReaction, user) => {
     if (msg.guild.id !== bot.config.guildID) return;
     if (!msg) return;
     if (messageReaction.me) return;
-    if (messageReaction.emoji.id == '296303996136587264' && messageReaction.count >= 8) {
-        msg.react("296303996136587264");
+    if (messageReaction.emoji.id == '320770131741376512' && messageReaction.count >= 8) {
+        msg.react("320770131741376512");
         const HoF = new Discord.RichEmbed();
             HoF.setColor(`${msg.member.displayHexColor}`)
             .setFooter('LGBTQ+ of FIRST 🌈')

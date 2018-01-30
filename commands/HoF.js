@@ -6,7 +6,7 @@ message.channel.fetchMessages({limit: 1, around: args[0]})
         var HallOfFame = msg.guild.channels.find('name', 'hall-of-fame');
         if (!HallOfFame) return;
         if (message.reactions.me) return;
-        msg.react("296303996136587264");
+        msg.react("320770131741376512");
         const HoF = new Discord.RichEmbed();
             HoF.setColor(`${msg.member.displayHexColor}`)
             .setFooter('Hall of Fame 🏆')
