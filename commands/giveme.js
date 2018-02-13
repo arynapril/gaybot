@@ -1,7 +1,7 @@
 exports.run = async(bot, message, args, level) => {
     const Discord = require('discord.js')
     var colors = Array("#FF80AB", "#FF4081", "#F50057", "#EF5350", "#E53935", "#C62828", "#FFAB40", "#FF9100", "#FF6D00", "#FFD740", "#FFC400", "#FFAB00", "#81C784", "#4CAF50", "#388E3C", "#2196F3", "#1976D2", "#0D47A1", "#7986CB", "#3F51B5", "#303F9F", "#B39DDB", "#7E57C2", "#5E35B1");
-    const allowedRoles = ['social', 'Alumni', 'Mentor', 'Volunteer', 'FRC', 'FTC', 'VEX', 'FGC', 'FLL', 'ally', 'aromantic', 'male', 'female', 'agender', 'genderfluid', 'demiboy', 'demigirl', 'nonbinary', 'gay', 'lesbian', 'bisexual', 'asexual', 'pansexual', 'straight', 'demisexual', 'questioning', 'queer'];
+    const allowedRoles = ['social', 'Alumni', 'Mentor', 'Volunteer', 'FRC', 'FTC', 'VEX', 'FGC', 'FLL', 'ally', 'aromantic', 'male', 'female', 'agender', 'genderfluid', 'demiboy', 'demigirl', 'nonbinary', 'transsexual', 'genderqueer', 'gay', 'lesbian', 'bisexual', 'asexual', 'pansexual', 'straight', 'demisexual', 'questioning', 'queer'];
     var assigned = "";
     var assignedCount = 0;
     var alreadyHad = "";
