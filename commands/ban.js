@@ -1,6 +1,6 @@
 exports.run = async(bot, message, args, level) => {
     const Discord = require("discord.js");
-    if (!message.mentions.users.array()[0]) return;    
+    if (!message.mentions.users.array()[0]) return message.channel.send('Please mention a user to ban!');    
     var banee = message.mentions.users.array()[0];
     var banned = message.guild.members.get(banee.id);
     if (args.length == 1) {
@@ -18,8 +18,8 @@ exports.run = async(bot, message, args, level) => {
         .setTimestamp()
         .setColor('#E53935')
     message.channel.send({embed: ban})
-    var logs = message.guild.channels.find('name', 'mod-logs');
-    logs.send({embed: ban});
+    //var logs = message.guild.channels.find('name', 'mod-logs');
+    //logs.send({embed: ban});
 };
 exports.conf = {
     enabled: true,
