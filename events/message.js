@@ -8,7 +8,7 @@ module.exports = (bot, message) => {
             let role = message.guild.roles.find("name", "member");
             message.member.addRole(role);
             var lobby = message.guild.channels.find('name', 'the-lobby');
-            lobby.send(`Welcome ${message.author} to LGBTQ+ of FIRST! Feel free to contact a member of staff if you have any questions (listed in #server-rules)! If you would like a role to describe your sexuality, gender identity, or position within FIRST, head to #bot-commands and run \`.giveme list\` to see the roles avaliable to self assign! Enjoy your stay!`);
+            lobby.send(`Welcome ${message.author} to LGBTQ+ of FIRST! Feel free to contact a member of staff if you have any questions (listed in <#170144952871813120>)! If you would like a role to describe your sexuality, gender identity, or position within FIRST, head to <#346531797116387349> and run \`.giveme list\` to see the roles avaliable to self assign! Enjoy your stay!`);
             message.channel.bulkDelete(50);
             message.channel.send("Welcome to LGBTQ+ of FIRST! Please read the rules, set your nickname to include your team number and pronouns, and then type **I have read the rules and regulations**. Thank you!");
         };
