@@ -1,5 +1,9 @@
 exports.run = async(bot, message, args, level) => {
+<<<<<<< HEAD
     const allowedRoles = ['social', 'Alumni', 'Mentor', 'Volunteer', 'FRC', 'FTC', 'VEX', 'FGC', 'FLL', 'ally', 'aromantic', 'male', 'female', 'agender', 'genderfluid', 'demiboy', 'demigirl', 'nonbinary', 'transsexual', 'genderqueer', 'gay', 'lesbian', 'bisexual', 'asexual', 'pansexual', 'straight', 'demisexual', 'questioning', 'queer', 'polysexual', 'gender-non-conforming', 'grayromantic', 'closeted', 'Houston', 'Detroit'];
+=======
+    const allowedRoles = ['social', 'Alumni', 'Mentor', 'Student-Mentor', 'Volunteer', 'FRC', 'FTC', 'VEX', 'FGC', 'FLL', 'ally', 'aromantic', 'male', 'female', 'agender', 'genderfluid', 'demiboy', 'demigirl', 'nonbinary', 'transsexual', 'genderqueer', 'gay', 'lesbian', 'bisexual', 'asexual', 'pansexual', 'straight', 'demisexual', 'questioning', 'queer', 'polysexual'];
+>>>>>>> 183b6405d89d03e89b8e75007e62bbc72430c247
     var found = false;
     var role = null;
     for (var k = 0; k < args.length; k++) {
