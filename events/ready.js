@@ -1,5 +1,5 @@
 module.exports = async bot => {
-    await wait(1000);
-    bot.log("log", `Ready to serve ${bot.users.size} users in the LGBTQ+ of FIRST server!`, "READY");
-    bot.user.setGame(".help | GAY ALLIANCE 👏 👏 👏👏👏");
+	await wait(1000);
+	bot.syncServers();
+	bot.log("log", `Ready to love ${bot.users.size} users in ${bot.guilds.size} servers!`, "READY");
 }

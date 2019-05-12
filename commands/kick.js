@@ -19,17 +19,20 @@ exports.run = (bot, message, args, level) => {
         .setTimestamp()
         .setColor('#E53935')
     message.channel.send({embed: kick})
-    var logs = message.guild.channels.find('name', 'mod-logs');
-    logs.send({embed: kick});
+    //var logs = message.guild.channels.find('name', 'mod-logs');
+    //logs.send({embed: kick});
 };
+
 exports.conf = {
-    enabled: true, 
-    guildOnly: false, 
-    aliases: [], 
-    permLevel: 4
+	enabled: true,
+	guildOnly: false,
+	aliases: [],
+	botPerms: ['KICK_MEMBERS'],
+	memberPerms: ['KICK_MEMBERS']
 };
+
 exports.help = {
-    name: 'kick',  
-    description: 'Kicks a member', 
-    usage: 'kick <member to be kicked>'
+	name: 'kick',
+	description: 'kicks a mentioned member from the server, with optional reason',
+	usage: 'kick <member mention> <optional reason>'
 };

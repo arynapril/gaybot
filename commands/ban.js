@@ -1,4 +1,4 @@
-exports.run = async(bot, message, args, level) => {
+exports.run = (bot, message, args, level) => {
     const Discord = require("discord.js");
     if (!message.mentions.users.array()[0]) return message.channel.send('Please mention a user to ban!');    
     var banee = message.mentions.users.array()[0];
@@ -21,14 +21,17 @@ exports.run = async(bot, message, args, level) => {
     //var logs = message.guild.channels.find('name', 'mod-logs');
     //logs.send({embed: ban});
 };
+
 exports.conf = {
-    enabled: true,
-    guildOnly: false,
-    aliases: [],
-    permLevel: 4
+	enabled: true,
+	guildOnly: false,
+	aliases: [],
+	botPerms: ['BAN_MEMBERS'],
+	memberPerms: ['BAN_MEMBERS']
 };
+
 exports.help = {
-    name: 'ban',
-    description: 'Bans a member.',
-    usage: 'ban @<member to be banned> <reason for banning>'
+	name: 'ban',
+	description: 'Bans a mentioned member',
+	usage: 'ban <member mention>'
 };

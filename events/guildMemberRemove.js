@@ -1,7 +1,16 @@
-module.exports = (bot, member) => {
-    if (member.guild.id !== bot.config.guildID) return;
-    var screening = member.guild.channels.find('name', 'screening-lobby');
-    screening.send(`${member.user.username} has left the server!`)
-    .then(msg => setTimeout(function() {msg.delete()}, 60000));
-    bot.log("log", `Member left - ${member.user.username} (${member.id})`, 'MEMBR');
+module.exports = async (bot, member) => {
+	bot.log("log", `${member.guild.name} lost a member - ${member.user.username} (${member.id})`, 'MEMBR');
+	enabled = await bot.getSetting('welcomeMessagesEnabled', member.guild);
+	if (enabled == '0') return;
+	setting = await bot.getSetting('welcomeMessagesChannel', member.guild);
+	welcome = member.guild.channels.find('name', setting);
+	if (!welcome) return;
+	autodelete = await bot.getSetting('welcomeMessagesAutoDelete', member.guild);
+	if (autodelete) {
+		welcome.send(`${member.displayName} has left the server! :cry:`)
+		.then(msg => setTimeout(function() {msg.delete()}, 60000));
+	} else {
+		welcome.send(`${member.displayName} has left the server! :cry:`);
+	}
+	
 };

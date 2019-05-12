@@ -1,7 +1,7 @@
 exports.run = (bot, message, args, level) => {
     if (!message.mentions.users.array()[0]) return;
     var user = message.mentions.users.array()[0];
-    var roleToGive = args[1];
+    var roleToGive = args.slice(1).join(' ');
     let role = message.guild.roles.find("name", roleToGive);
     if (!role) {
         message.channel.send("That role does not exist!");
@@ -15,15 +15,17 @@ exports.run = (bot, message, args, level) => {
     } else
         message.channel.send("Your highest role is lower than this role, so you cannot give it! Sorry!");
 };
+
 exports.conf = {
-    enabled: true,
-    guildOnly: false,
-    aliases: [],
-    permLevel: 2
+	enabled: true,
+	guildOnly: false,
+	aliases: [],
+	botPerms: ['MANAGE_ROLES'],
+	memberPerms: ['MANAGE_ROLES']
 };
 
 exports.help = {
-    name: 'give',
-    description: 'Gives a member a role',
-    usage: 'give @<member to be given the role> <the role to be given>'
+	name: 'give',
+	description: 'gives a mentioned user a role',
+	usage: 'give <member mention> <role name>'
 };
