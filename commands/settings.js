@@ -3,8 +3,8 @@ exports.run = async (bot, message, args, level) => {
 	x = '';
 	phrase = '';
 	settingsArray = ['dadJokesEnabled', 'dadJokesJail', 'hallOfFameEnabled', 'hallOfFameEmote', 'hallOfFameLimit', 'hallOfFameChannel', 'welcomeMessagesEnabled', 'welcomeMessagesChannel', 'prefix', 'welcomeMessage', 'securityEnabled', 'securityChannel', 'securityPhrase', 'securityNickCheck', 'securityNickFormat', 'securityJoinMessage', 'securityRole', 'securityPinMessage', 'leaveMessagesAutoDelete'];
-	booleanArray = ['dadJokesEnabled', 'hallOfFameEnabled', 'welcomeMessagesEnabled', 'securityEnabled', 'securityNickCheck'];
-	channelArray = ['dadJokesJail', 'hallOfFameChannel', 'welcomeMessagesChannel', 'securityChannel', 'leaveMessagesAutoDelete'];
+	booleanArray = ['dadJokesEnabled', 'hallOfFameEnabled', 'welcomeMessagesEnabled', 'leaveMessagesEnabled', 'securityEnabled', 'securityNickCheck', 'leaveMessagesAutoDelete'];
+	channelArray = ['dadJokesJail', 'hallOfFameChannel', 'welcomeMessagesChannel', 'leaveMessagesChannel', 'securityChannel'];
 	phraseArray = ['welcomeMessage', 'securityPhrase', 'securityNickFormat', 'securityJoinMessage', 'securityPinMessage'];
 	roleArray = ['securityRole'];
 	numberArray = ['hallOfFameLimit'];
