@@ -11,6 +11,7 @@ module.exports = (bot) => {
 				name VARCHAR(100), 
 				prefix VARCHAR(10),
 				welcomeMessagesEnabled BOOLEAN,
+				leaveMessagesEnabled BOOLEAN,
 				welcomeMessagesChannel VARCHAR(25),
 				leaveMessagesChannel VARCHAR(25),
 				leaveMessagesAutoDelete BOOLEAN,
