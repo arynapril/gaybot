@@ -11,7 +11,7 @@ module.exports = async (bot, message) => {
 		modMail = new Discord.RichEmbed()
 		.setColor('RANDOM')
 		.setAuthor(message.author.tag, message.author.avatarURL)
-		.setDescription(args.slice(1).join(" "))
+		.setDescription(message.content)
 		.setFooter('To respond, run the reply command, starting with the userID/the ID at the top of this message!')
 		if (message.attachments.size !== 0) {
 			pictures = message.attachments.array();
