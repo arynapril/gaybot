@@ -1,18 +1,37 @@
 module.exports = async (bot, message) => {
 	const Discord = require('discord.js');
 	if (message.content.toLowerCase().includes('yam')||message.content.toLowerCase().includes('174687224988827659')||message.content.toLowerCase().includes('aryn')) {
-		if (message.guild.members.get('174687224988827659')) {
-			mentionedEmbed = new Discord.RichEmbed()
-			.setTitle(message.guild.name + ' - ' + message.channel.name)
-			.setAuthor(message.author.username, message.author.avatarURL)
-			.setDescription(message.content)
-			bot.users.get('174687224988827659').send({embed: mentionedEmbed});
+		if (message.channel.type !== 'dm'){
+			if (message.guild.members.get('174687224988827659')) {
+				mentionedEmbed = new Discord.RichEmbed()
+				.setTitle(message.guild.name + ' - ' + message.channel.name)
+				.setAuthor(message.author.username, message.author.avatarURL)
+				.setDescription(message.content)
+				bot.users.get('174687224988827659').send({embed: mentionedEmbed});
+			}
 		}
 	}
 	if (message.channel.type === "dm" && message.author.id == bot.user.id)
 		return console.log("[DM] " + bot.user.username + " -> " + message.channel.recipient.username + " | " + message.content);
-	else if (message.channel.type === "dm" && message.author.id != bot.user.id)
-		return console.log("[DM] " + message.channel.recipient.username + " -> " + bot.user.username + " | " + message.content);
+	else if (message.channel.type === "dm" && message.author.id != bot.user.id){
+		console.log("[DM] " + message.channel.recipient.username + " -> " + bot.user.username + " | " + message.content);
+		mmGuild = bot.guilds.get('170144952871813120');
+		mmGuildC = await bot.getSetting('modMailChannel', mmGuild);
+		mmGuildChan = mmGuild.channels.find('name', mmGuildC);
+		if (!mmGuildChan) return message.channel.send('Sorry, something is wrong server end! Make sure all the channel settings are set correctly!');
+		modMail = new Discord.RichEmbed()
+		.setColor('RANDOM')
+		.setAuthor(message.author.tag, message.author.avatarURL)
+		.setDescription(args.slice(1).join(" "))
+		.setFooter('To respond, run the reply command, starting with the userID/the ID at the top of this message!')
+		if (message.attachments.size !== 0) {
+			pictures = message.attachments.array();
+			modMail.setImage(pictures[0].url)
+		}
+		mmGuildChan.send(`${message.author.id}`, {embed: modMail});
+		message.react('💌');
+		return;
+	}
 	if (!message.channel.permissionsFor(message.guild.me).has("SEND_MESSAGES")) return;
 	if (!message.channel.type === "text" || !message.guild) return;
 	if (message.author.bot) return;

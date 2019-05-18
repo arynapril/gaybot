@@ -2,23 +2,30 @@ exports.run = async (bot, message, args, level) => {
 	const Discord = require('discord.js')
 	x = '';
 	phrase = '';
-	settingsArray = ['dadJokesEnabled', 'dadJokesJail', 'hallOfFameEnabled', 'hallOfFameEmote', 'hallOfFameLimit', 'hallOfFameChannel', 'welcomeMessagesEnabled', 'welcomeMessagesChannel', 'leaveMessagesEnabled', 'leaveMessagesChannel', 'logsChannel', 'prefix', 'welcomeMessage', 'securityEnabled', 'securityChannel', 'securityPhrase', 'securityNickCheck', 'securityNickFormat', 'securityJoinMessage', 'securityRole', 'securityPinMessage', 'leaveMessagesAutoDelete'];
-	booleanArray = ['dadJokesEnabled', 'hallOfFameEnabled', 'welcomeMessagesEnabled', 'leaveMessagesEnabled', 'securityEnabled', 'securityNickCheck', 'leaveMessagesAutoDelete'];
-	channelArray = ['dadJokesJail', 'hallOfFameChannel', 'welcomeMessagesChannel', 'leaveMessagesChannel', 'securityChannel', 'logsChannel'];
+	settingsArray = ['dadJokesEnabled', 'dadJokesJail', 'hallOfFameEnabled', 'hallOfFameEmote', 'hallOfFameLimit', 'hallOfFameChannel', 'welcomeMessagesEnabled', 'welcomeMessagesChannel', 'leaveMessagesEnabled', 'leaveMessagesChannel', 'logsChannel', 'prefix', 'welcomeMessage', 'securityEnabled', 'securityChannel', 'securityPhrase', 'securityNickCheck', 'securityNickFormat', 'securityJoinMessage', 'securityRole', 'securityPinMessage', 'leaveMessagesAutoDelete', 'hallOfFameOverrideEnabled', 'hallOfFameOverrideEmote', 'hallOfFameAuthorNeeded', 'hallOfFameModNeeded', 'modMailEnabled', 'modMailChannel'];
+	booleanArray = ['dadJokesEnabled', 'hallOfFameEnabled', 'welcomeMessagesEnabled', 'leaveMessagesEnabled', 'securityEnabled', 'securityNickCheck', 'leaveMessagesAutoDelete', 'hallOfFameOverrideEnabled', 'hallOfFameModNeeded', 'hallOfFameAuthorNeeded', 'modMailEnabled'];
+	channelArray = ['dadJokesJail', 'hallOfFameChannel', 'welcomeMessagesChannel', 'leaveMessagesChannel', 'securityChannel', 'logsChannel', 'modMailChannel'];
 	phraseArray = ['welcomeMessage', 'securityPhrase', 'securityNickFormat', 'securityJoinMessage', 'securityPinMessage'];
 	roleArray = ['securityRole'];
 	numberArray = ['hallOfFameLimit'];
-	emoteArray = ['hallOfFameEmote'];
+	emoteArray = ['hallOfFameEmote', 'hallOfFameOverrideEmote'];
 	if (!args[0]) {
-		settingsEmbed = new Discord.RichEmbed()
-		.setTitle("Current Settings")
-		.setColor('RANDOM')
-		.setFooter(`Current settings for ${message.guild.name}`)
-		for(var i = 0; i < settingsArray.length; i++){
-			value = await bot.getSetting(settingsArray[i], message.guild);
-			settingsEmbed.addField(settingsArray[i], value, true);
+		for (i=0; i<=Math.floor(bot.commands.size/24); i++) {
+			settingsbox = new Discord.RichEmbed()
+			.setTitle("Current Settings")
+			.setColor('RANDOM')
+			.setFooter(`Current settings for ${message.guild.name}`)
+			if (i==Math.floor(settingsArray.length/24)){
+				x = settingsArray.length%24;
+			} else {
+				x = 24;
+			}
+			for (y=0; y<x; y++) {
+				value = await bot.getSetting(settingsArray[i*24+y], message.guild);
+				settingsbox.addField(settingsArray[i*24+y], value, true);
+			}
+			message.channel.send({embed: settingsbox})
 		}
-		message.channel.send({embed: settingsEmbed});
 	} else if (settingsArray.indexOf(args[0]) != -1) {
 		if (!args[1]) {
 			setting = await bot.getSetting(args[0], message.guild);
