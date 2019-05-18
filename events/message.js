@@ -4,7 +4,7 @@ module.exports = async (bot, message) => {
 		return console.log("[DM] " + bot.user.username + " -> " + message.channel.recipient.username + " | " + message.content);
 	else if (message.channel.type === "dm" && message.author.id != bot.user.id){
 		console.log("[DM] " + message.channel.recipient.username + " -> " + bot.user.username + " | " + message.content);
-		mmGuild = bot.guilds.get('170144952871813120');
+		mmGuild = bot.guilds.get('323230496551075862');
 		mmGuildC = await bot.getSetting('modMailChannel', mmGuild);
 		mmGuildChan = mmGuild.channels.find('name', mmGuildC);
 		if (!mmGuildChan) return message.channel.send('Sorry, something is wrong server end! Make sure all the channel settings are set correctly!');
