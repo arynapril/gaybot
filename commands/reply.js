@@ -16,7 +16,7 @@ exports.run = async (bot, message, args, level) => {
 			pictures = message.attachments.array();
 			response.setImage(pictures[0].url)
 		}
-        m.user.send({embed: response});
+        m.send({embed: response});
         message.react('💌');
     }
 };
