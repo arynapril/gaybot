@@ -24,10 +24,10 @@ exports.run = async (bot, message, args, level) => {
             str += `${givemeList[i]} \n`
         };
         listEmbed = new Discord.RichEmbed()
-                .setTitle("Roles avaliable to self assign")
-                .setColor("RANDOM")
+        .setTitle("Run !giveme <role name> to self assign any of these roles!")
+        .setColor("RANDOM")
                 .setDescription(str)
-                .setFooter("Run !giveme <role name> to self assign any of these roles!")
+                .setFooter('Ask an admin for the trans role and/or regional roles!')
                 .setTimestamp()
         return message.channel.send({embed: listEmbed});
     } else if (args[0] == 'delete') {
@@ -67,6 +67,7 @@ exports.run = async (bot, message, args, level) => {
         removeEmbed = new Discord.RichEmbed()
             .setColor("RANDOM")
             .setTimestamp()
+            .setFooter('Ask an admin for the trans role and/or regional roles!')
         if (removed > 0) removeEmbed.addField(`Removed ${removed} roles!`, removedNames);
         if (didntHave >0) removeEmbed.addField(`You didn't have ${didntHave} roles!`, didntHaveNames);
         if (couldnt > 0) removeEmbed.addField(`Couldn't remove ${couldnt} roles!`, 'The roles requested either don\'t exist or aren\'t part of the roles able to be removed with the bot. To show a list of the roles able to be removed, run \`!giveme list\`');
