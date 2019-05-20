@@ -96,6 +96,7 @@ exports.run = async (bot, message, args, level) => {
         addEmbed = new Discord.RichEmbed()
             .setColor("RANDOM")
             .setTimestamp()
+            .setFooter('Ask an admin for the trans role and/or regional roles!')
         if (added > 0) addEmbed.addField(`Added ${added} roles!`, addedNames);
         if (alreadyHad >0) addEmbed.addField(`You already had ${alreadyHad} roles!`, alreadyHadNames);
         if (couldnt > 0) addEmbed.addField(`Couldn't add ${couldnt} roles!`, 'The roles requested either don\'t exist, aren\'t part of the roles able to be added with the bot, or I don\'t have adequate perms. To show a list of the roles able to be added, run \`!giveme list\`');
