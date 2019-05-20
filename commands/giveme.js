@@ -24,7 +24,7 @@ exports.run = async (bot, message, args, level) => {
             str += `${givemeList[i]} \n`
         };
         listEmbed = new Discord.RichEmbed()
-        .setTitle("Run !giveme <role name> to self assign any of these roles!")
+        .setTitle("Run .giveme <role name> to self assign any of these roles!")
         .setColor("RANDOM")
                 .setDescription(str)
                 .setFooter('Ask an admin for the trans role and/or regional roles!')
