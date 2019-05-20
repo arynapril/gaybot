@@ -2,7 +2,7 @@ exports.run = async (bot, message, args, level) => {
     const Discord = require("discord.js");
     m = bot.users.get(args[0]);
     chan = await bot.getSetting('modMailChannel', message.guild);
-    mmChan = message.guild.channels.find('name', chan);
+    mmChan = message.guild.channels.find(c => c.name == chan);
     if (mmChan.id !== message.channel.id) return message.channel.send('Sorry, please send replies to mod mail messages in the mod mail channel!')
     if (!m) {
         return message.channel.send('Sorry, that user doesn\'t appear to be in this server/the LGBTQ+ of FIRST server! Make sure to start your message with a user ID!')

@@ -1,12 +1,11 @@
 exports.run = (bot, message, args, level) => {
 	const Discord = require('discord.js');
 	if (!args[0]) {
-
 		var intro = new Discord.RichEmbed();
 		intro.setTitle("Command List")
 			.setDescription(`Use ${bot.config.prefix}help <commandname> for details`)
 			.setColor([Math.floor(Math.random() * 256), Math.floor(Math.random() * 256), Math.floor(Math.random() * 256)]);
-		message.channel.send({embed: intro})
+		message.author.send({embed: intro})
 		for (i=0; i<=Math.floor(bot.commands.size/24); i++) {
 			var helpbox = new Discord.RichEmbed();
 			helpbox.setColor(intro.color);
@@ -19,8 +18,9 @@ exports.run = (bot, message, args, level) => {
 				c = bot.commands.array()[i*24+y];
 				helpbox.addField(c.help.name, c.help.description)
 			}
-			message.channel.send({embed: helpbox})
+			message.author.send({embed: helpbox})
 		}
+		message.channel.send('List of commands DMd! 💌 If you didn\'t recieve anything, make sure you have dms from server members turned on!');
 	} else {
 		let command = '';
 		if (bot.commands.has(args[0])) {

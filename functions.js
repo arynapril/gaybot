@@ -124,7 +124,7 @@ module.exports = (bot) => {
 		bot.getSetting('dadJokesEnabled', message.guild).then(setting => {
 			if (setting == '0') return;
 			bot.getSetting('dadJokesJail', message.guild).then(chan => {
-				jail = message.guild.channels.find('name', chan);
+				jail = message.guild.channels.find(c => c.name == chan);
 				if (!jail) {
 					if (message.author.id == '226999841358610432') {
 						const args = message.content.split(/\s+/g);
@@ -223,8 +223,8 @@ module.exports = (bot) => {
 			return m;
 		} else if (bot.users.get(input)) {
 			//return bot.users.get(input);
-		} else if (bot.users.find('tag', input)) {
-			//return bot.users.find('tag', input);
+		} else if (bot.users.find(u => u.tag == input)) {
+			//return bot.users.find(u => u.tag == input);
 		}
 	}
 	bot.log = (type, message, title) => {
@@ -255,18 +255,6 @@ module.exports = (bot) => {
 	};
 	bot.enabled = function(command, guild) {
 		return true;
-	};
-	bot.pointsMonitor = (bot, message) => {
-		const score = bot.points.get(message.author.id) || {
-			cookies: 0
-		};
-		const total = bot.points.get(bot.user.id) || {
-			cookies: 0
-		}
-		score.cookies++
-			total.cookies++
-			bot.points.set(message.author.id, score);
-		bot.points.set(bot.user.id, total)
 	};
 	global.wait = require('util').promisify(setTimeout);
 	global.range = (count, start = 0) => {
