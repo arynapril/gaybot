@@ -8,7 +8,7 @@ module.exports = async bot => {
 		"💖💜💙", 
 		"💖💛💙"
 		];
-	index = -1;
+	index = 0;
 	setInterval(() => {
 		index += 1;
 		if (index == list.length) index = 0; 
