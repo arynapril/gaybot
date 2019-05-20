@@ -12,6 +12,6 @@ module.exports = async bot => {
 	setInterval(() => {
 		index += 1;
 		if (index == list.length) index = 0; 
-		client.user.setPresence({ game: { name: list[index] }, status: 'online' }); // sets bot's activities to one of the phrases in the arraylist.
+		bot.user.setPresence({ game: { name: list[index] }, status: 'online' }); // sets bot's activities to one of the phrases in the arraylist.
 	}, 30000);
 }
