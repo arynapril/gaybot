@@ -73,7 +73,7 @@ exports.run = async (bot, message, args, level) => {
         if (couldnt > 0) removeEmbed.addField(`Couldn't remove ${couldnt} roles!`, 'The roles requested either don\'t exist or aren\'t part of the roles able to be removed with the bot. To show a list of the roles able to be removed, run \`!giveme list\`');
         var removeSent = await message.channel.send({embed: removeEmbed});
         removeSent.react('❌')
-        var collector = sent.createReactionCollector(
+        var collector = removeSent.createReactionCollector(
             (reaction, user) => reaction.emoji.name == '❌' && user.id == message.author.id,
             { time: 30000 }
         );
