@@ -129,7 +129,7 @@ exports.run = async (bot, message, args, level) => {
         if (added > 0) addEmbed.addField(`Added ${added} roles!`, addedNames);
         if (alreadyHad >0) addEmbed.addField(`You already had ${alreadyHad} roles!`, alreadyHadNames);
         if (couldnt > 0) addEmbed.addField(`Couldn't add ${couldnt} roles!`, 'The roles requested either don\'t exist, aren\'t part of the roles able to be added with the bot, or I don\'t have adequate perms. To show a list of the roles able to be added, run \`!giveme list\`');
-        var sent = await message.channel.send({embed: addEmbed});
+        var sent = await message.channel.send('React with the ❌ emote to this message to remove it and the message calling the command, if desired for privacy reasons', {embed: addEmbed});
         sent.react('❌')
         var collector = sent.createReactionCollector(
             (reaction, user) => reaction.emoji.name == '❌' && user.id == message.author.id,
@@ -143,6 +143,7 @@ exports.run = async (bot, message, args, level) => {
         collector.on('end', collected => {
             if (collected.size == 0) {
                 sent.clearReactions();
+                sent.edit('', {embed: addEmbed})
             }
         });
     }
