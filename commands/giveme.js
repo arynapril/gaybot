@@ -71,7 +71,7 @@ exports.run = async (bot, message, args, level) => {
         if (removed > 0) removeEmbed.addField(`Removed ${removed} roles!`, removedNames);
         if (didntHave >0) removeEmbed.addField(`You didn't have ${didntHave} roles!`, didntHaveNames);
         if (couldnt > 0) removeEmbed.addField(`Couldn't remove ${couldnt} roles!`, 'The roles requested either don\'t exist or aren\'t part of the roles able to be removed with the bot. To show a list of the roles able to be removed, run \`!giveme list\`');
-        var removeSent = await message.channel.send({embed: removeEmbed});
+        var removeSent = await message.channel.send('React with the ❌ emote to this message to remove it and the message calling the command, if desired for privacy reasons', {embed: removeEmbed});
         removeSent.react('❌')
         var collector = removeSent.createReactionCollector(
             (reaction, user) => reaction.emoji.name == '❌' && user.id == message.author.id,
@@ -85,6 +85,7 @@ exports.run = async (bot, message, args, level) => {
         collector.on('end', collected => {
             if (collected.size == 0) {
                 removeSent.clearReactions();
+                removeSent.edit('', {embed: removeEmbed})
             }
         });
     } else {
