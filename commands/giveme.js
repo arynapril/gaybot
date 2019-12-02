@@ -27,7 +27,7 @@ exports.run = async (bot, message, args, level) => {
         .setTitle("Run .giveme <role name> to self assign any of these roles!")
         .setColor("RANDOM")
                 .setDescription(str)
-                .setFooter('Ask an admin for the trans role and/or regional roles!')
+                .setFooter('Ask an admin for the trans role, partner team roles, and/or regional roles!')
                 .setTimestamp()
         return message.channel.send({embed: listEmbed});
     } else if (args[0] == 'delete') {
@@ -67,7 +67,7 @@ exports.run = async (bot, message, args, level) => {
         removeEmbed = new Discord.RichEmbed()
             .setColor("RANDOM")
             .setTimestamp()
-            .setFooter('Ask an admin for the trans role and/or regional roles!')
+            .setFooter('Ask an admin for the trans role, partner team roles, and/or regional roles!')
         if (removed > 0) removeEmbed.addField(`Removed ${removed} roles!`, removedNames);
         if (didntHave >0) removeEmbed.addField(`You didn't have ${didntHave} roles!`, didntHaveNames);
         if (couldnt > 0) removeEmbed.addField(`Couldn't remove ${couldnt} roles!`, 'The roles requested either don\'t exist or aren\'t part of the roles able to be removed with the bot. To show a list of the roles able to be removed, run \`!giveme list\`');
@@ -125,7 +125,7 @@ exports.run = async (bot, message, args, level) => {
         addEmbed = new Discord.RichEmbed()
             .setColor("RANDOM")
             .setTimestamp()
-            .setFooter('Ask an admin for the trans role and/or regional roles!')
+            .setFooter('Ask an admin for the trans role, partner team roles, and/or regional roles!')
         if (added > 0) addEmbed.addField(`Added ${added} roles!`, addedNames);
         if (alreadyHad >0) addEmbed.addField(`You already had ${alreadyHad} roles!`, alreadyHadNames);
         if (couldnt > 0) addEmbed.addField(`Couldn't add ${couldnt} roles!`, 'The roles requested either don\'t exist, aren\'t part of the roles able to be added with the bot, or I don\'t have adequate perms. To show a list of the roles able to be added, run \`!giveme list\`');
